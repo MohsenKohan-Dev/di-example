@@ -1,7 +1,9 @@
 package dev.mohsenkohan.diexample.controllers;
 
 import dev.mohsenkohan.diexample.services.GreetingService;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class ConstructorInjectedController {
 
     private final GreetingService greetingService;
