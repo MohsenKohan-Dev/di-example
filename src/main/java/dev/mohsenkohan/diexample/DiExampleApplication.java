@@ -1,9 +1,6 @@
 package dev.mohsenkohan.diexample;
 
-import dev.mohsenkohan.diexample.controllers.ConstructorInjectedController;
-import dev.mohsenkohan.diexample.controllers.HelloController;
-import dev.mohsenkohan.diexample.controllers.PropertyInjectedController;
-import dev.mohsenkohan.diexample.controllers.SetterInjectedController;
+import dev.mohsenkohan.diexample.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -32,6 +29,10 @@ public class DiExampleApplication {
         ConstructorInjectedController constructorInjectedController =
                 (ConstructorInjectedController) context.getBean("constructorInjectedController");
         System.out.println(constructorInjectedController.getGreeting());
+
+        System.out.println("---------- International");
+        I18nController i18nController = (I18nController) context.getBean("i18nController");
+        System.out.println(i18nController.sayHello());
     }
 
 }
