@@ -1,13 +1,18 @@
 package dev.mohsenkohan.diexample.controllers;
 
+import dev.mohsenkohan.diexample.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class HelloController {
 
-    public String sayHello() {
-        System.out.println("Hello World!");
+    private final GreetingService greetingService;
 
-        return "Hi Folks!";
+    public HelloController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
+    public String sayHello() {
+        return greetingService.sayGreeting();
     }
 }
