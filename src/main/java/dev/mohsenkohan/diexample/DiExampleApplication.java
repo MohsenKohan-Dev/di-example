@@ -10,10 +10,10 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
 @SpringBootApplication
-@PropertySources({
-        @PropertySource("classpath:datasource.properties"),
-        @PropertySource("classpath:jms.properties")
-})
+//@PropertySources({
+//        @PropertySource("classpath:datasource.properties"),
+//        @PropertySource("classpath:jms.properties")
+//})
 public class DiExampleApplication {
 
     public static void main(String[] args) {
