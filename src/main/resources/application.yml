@@ -3,3 +3,13 @@ jms:
   username: mohsen
   password: myjmspassword
   url: myjmsurl
+
+---
+# jms properties in EN profile
+spring:
+  profiles: EN
+
+jms:
+  username: "mohsen:EN"
+  password: "myjmspassword:EN"
+  url: "myjmsurl:EN"
