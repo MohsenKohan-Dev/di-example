@@ -2,13 +2,18 @@ package dev.mohsenkohan.diexample;
 
 import dev.mohsenkohan.diexample.controllers.*;
 import dev.mohsenkohan.diexample.propertybeans.FakeDataSource;
+import dev.mohsenkohan.diexample.propertybeans.FakeJmsBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 
 @SpringBootApplication
-@PropertySource("classpath:datasource.properties")
+@PropertySources({
+        @PropertySource("classpath:datasource.properties"),
+        @PropertySource("classpath:jms.properties")
+})
 public class DiExampleApplication {
 
     public static void main(String[] args) {
@@ -40,6 +45,10 @@ public class DiExampleApplication {
         System.out.println("---------- Datasource Properties");
         FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class);
         System.out.println(fakeDataSource);
+
+        System.out.println("---------- Jms Properties");
+        FakeJmsBroker fakeJmsBroker = context.getBean(FakeJmsBroker.class);
+        System.out.println(fakeJmsBroker);
     }
 
 }
