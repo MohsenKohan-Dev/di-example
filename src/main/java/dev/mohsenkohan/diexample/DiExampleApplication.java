@@ -1,11 +1,14 @@
 package dev.mohsenkohan.diexample;
 
 import dev.mohsenkohan.diexample.controllers.*;
+import dev.mohsenkohan.diexample.propertybeans.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
+@PropertySource("classpath:datasource.properties")
 public class DiExampleApplication {
 
     public static void main(String[] args) {
@@ -33,6 +36,10 @@ public class DiExampleApplication {
         System.out.println("---------- International");
         I18nController i18nController = (I18nController) context.getBean("i18nController");
         System.out.println(i18nController.sayHello());
+
+        System.out.println("---------- Datasource Properties");
+        FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class);
+        System.out.println(fakeDataSource);
     }
 
 }
