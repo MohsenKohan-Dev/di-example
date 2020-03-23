@@ -1,10 +1,14 @@
 package dev.mohsenkohan.diexample.propertybeans;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 @Component
 public class FakeDataSource {
+
+    private Environment env;
 
     @Value("${db.username}")
     private String username;
@@ -14,6 +18,12 @@ public class FakeDataSource {
 
     @Value("${db.url}")
     private String url;
+
+    @Autowired
+    public void setEnv(Environment env) {
+        this.env = env;
+        setUsername(env.getProperty("USERNAME"));
+    }
 
     public String getUsername() {
         return username;
